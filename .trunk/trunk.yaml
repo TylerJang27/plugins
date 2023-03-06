@@ -1,13 +1,12 @@
 version: 0.1
 
 cli:
-  version: 1.4.2-beta.8
+  version: 1.5.1
 
 plugins:
   sources:
     - id: trunk
-      uri: https://github.com/trunk-io/plugins
-      ref: 454583aa8bb4d092db343c7c4a71a72a19938768 # run the plugins repo at its own latest commit
+      local: .
 
 runtimes:
   enabled:
@@ -17,19 +16,21 @@ runtimes:
 
 lint:
   enabled:
+    - clippy@1.65.0
+    - golangci-lint@1.51.2
     - actionlint@1.6.23
     - black@23.1.0
-    - eslint@8.33.0
+    - eslint@8.34.0
     - flake8@6.0.0:
         packages:
-          - flake8-bugbear@23.1.20
+          - flake8-bugbear@23.2.13
     - git-diff-check
     - gitleaks@8.15.3
     - isort@5.12.0
     - markdownlint@0.33.0
-    - prettier@2.8.3
-    - renovate@34.125.1
-    - semgrep@1.9.0
+    - prettier@2.8.4
+    - renovate@34.152.1
+    - semgrep@1.12.1
     - shellcheck@0.9.0
     - shfmt@3.5.0
     - sqlfluff@1.4.5
@@ -38,7 +39,7 @@ lint:
 
   ignore:
     - linters: [ALL]
-      paths: ["**/test_data/**"]
+      paths: ["**/test_data/**", "**/test_data"]
 
 actions:
   definitions:
@@ -80,7 +81,6 @@ actions:
     - repo-tests
     - linter-test-helper
     - trunk-announce
-    - toggle-local
     - trunk-cache-prune
     - trunk-upgrade-available
     - trunk-check-pre-push
