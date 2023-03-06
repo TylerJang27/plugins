@@ -39,7 +39,7 @@ lint:
 
   ignore:
     - linters: [ALL]
-      paths: ["**/test_data/**"]
+      paths: ["**/test_data/**", "**/test_data"]
 
 actions:
   definitions:
