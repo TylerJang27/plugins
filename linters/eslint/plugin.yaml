@@ -9,7 +9,7 @@ lint:
         - name: lint
           output: eslint
           run: eslint --output-file ${tmpfile} --format json ${target}
-          error_codes: [2]
+          success_codes: [2]
           read_output_from: tmp_file
           batch: true
       direct_configs:
